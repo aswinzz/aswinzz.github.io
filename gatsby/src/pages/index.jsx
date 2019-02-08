@@ -66,6 +66,13 @@ const Index = () => (
           Hello, <br /> I'm Aswin VB.
         </BigTitle>
         <Subtitle>Full Stack Developer.</Subtitle>
+        <ContactText>
+            {/* <a href="mailto:aswinvb.aswin6@gmail.com">Gmail</a> &nbsp;&nbsp;
+            <a href="https://www.facebook.com/aswinvb">Facebook</a> &nbsp;&nbsp;
+            <a href="https://www.twitter.com/aswinvb1">Twitter</a> &nbsp;&nbsp;
+            <a href="https://github.com/aswinzz">Github</a>&nbsp;&nbsp; */}
+            Wanna Hire Me ? Here's <a target="_blank" href="https://drive.google.com/file/d/1gV5GxMubwdU7l3oakv-HZ45Lba1w3Onm/view?usp=sharing">My Resume</a>
+          </ContactText>
       </Hero>
       <Projects>
         <Title>Projects</Title>
@@ -144,7 +151,8 @@ const Index = () => (
           <ContactText>
             Say <a href="mailto:aswinvb.aswin6@gmail.com">Hi</a> or find me on other platforms:{' '}
             <a href="https://www.facebook.com/aswinvb">Facebook</a> &{' '}
-            <a href="https://github.com/aswinzz">Github</a>
+            <a href="https://github.com/aswinzz">Github</a><br/>
+            Wanna hire me ? Here's <a href="https://drive.google.com/file/d/1gV5GxMubwdU7l3oakv-HZ45Lba1w3Onm/view?usp=sharing">My Resume</a>
           </ContactText>
         </Inner>
         <Footer>
