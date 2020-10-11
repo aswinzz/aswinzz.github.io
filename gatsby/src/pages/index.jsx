@@ -140,7 +140,7 @@ const Index = () => (
         <AboutHero>
           <Avatar src={avatar} alt="John Doe" />
           <AboutSub>
-          I am a pre final year undergrad at Indian Institute Of Information Technology Allahabad. I have been doing web development for the last 3 years. I am from Kerala also known as the God Own Country.
+          I am a Software Engineer at Deutsche Telekom Digital Labs and a B.Tech Graduant from Indian Institute Of Information Technology Allahabad.  I am from Kerala also known as the God Own Country.
           </AboutSub>
         </AboutHero>
         
