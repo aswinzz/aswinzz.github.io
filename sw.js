@@ -27,26 +27,20 @@ workbox.core.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-e1f07aeb318d09a37866.js"
+    "url": "webpack-runtime-5c80a1d51ef144ce2273.js"
   },
   {
-    "url": "styles.66170f7b41f87843007c.css"
+    "url": "framework-dbb498007a7447f28d8e.js"
   },
   {
-    "url": "styles-407fe62976dc5310c43e.js"
-  },
-  {
-    "url": "framework-d38716036d006b0558e7.js"
-  },
-  {
-    "url": "app-d22f30c6e23b5873a0e4.js"
+    "url": "app-53258546b593beb19ddf.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "d901a2b1ff5696ba79559409535e2fc3"
+    "revision": "bee5ee2b183934fc8cd832e4a4c22304"
   },
   {
-    "url": "component---cache-caches-gatsby-plugin-offline-app-shell-js-241020a1cf7d0f317bbe.js"
+    "url": "component---cache-caches-gatsby-plugin-offline-app-shell-js-b0556ce5127c1a3e2490.js"
   },
   {
     "url": "page-data/offline-plugin-app-shell-fallback/page-data.json",
@@ -54,14 +48,14 @@ self.__precacheManifest = [
   },
   {
     "url": "page-data/app-data.json",
-    "revision": "e75b0d8b683bef25bf3c9feebd3d2311"
+    "revision": "3f7204302b31039394bf41df46b754d0"
   },
   {
-    "url": "polyfill-c79399ea3b3f15e29f85.js"
+    "url": "polyfill-ca8adf9770cfeec4c092.js"
   },
   {
     "url": "manifest.webmanifest",
-    "revision": "f9abc80f52355f3cfe946f093d6e6624"
+    "revision": "ac0a1ca81763e38150ebc82501a1709f"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
@@ -148,12 +142,12 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
   lastNavigationRequest = event.request.url
 
   let { pathname } = new URL(event.request.url)
-  pathname = pathname.replace(new RegExp(`^`), ``)
+  pathname = pathname.replace(new RegExp(`^/gatsby-starter-identity`), ``)
 
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/app-d22f30c6e23b5873a0e4.js`))) {
+  if (!resources || !(await caches.match(`/gatsby-starter-identity/app-53258546b593beb19ddf.js`))) {
     return await fetch(event.request)
   }
 
@@ -166,7 +160,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
     }
   }
 
-  const offlineShell = `/offline-plugin-app-shell-fallback/index.html`
+  const offlineShell = `/gatsby-starter-identity/offline-plugin-app-shell-fallback/index.html`
   const offlineShellWithKey = workbox.precaching.getCacheKeyForURL(offlineShell)
   return await caches.match(offlineShellWithKey)
 })
