@@ -1,55 +1,25 @@
-const about = require('./about.json');
-
-require('dotenv').config();
-
-const { ACCESS_TOKEN, SPACE_ID, ANALYTICS_ID, DETERMINISTIC } = process.env;
-
-const plugins = [
-  'gatsby-plugin-react-helmet',
-  'gatsby-plugin-typescript',
-  'gatsby-plugin-styled-components',
-  'gatsby-transformer-remark',
-  {
-    resolve: 'gatsby-plugin-manifest',
-    options: {
-      name: `${about.name}`,
-      short_name: about.name,
-      start_url: '/',
-      background_color: about.colors.background,
-      theme_color: about.colors.primary,
-      display: 'minimal-ui',
-      icon: 'media/icon.png',
-    },
-  },
-  'gatsby-plugin-offline',
-  {
-    resolve: 'gatsby-source-contentful',
-    options: {
-      spaceId: SPACE_ID,
-      accessToken: ACCESS_TOKEN,
-    },
-  },
-  {
-    resolve: 'gatsby-source-medium',
-    options: {
-      username: about.mediumUser || '@medium',
-    },
-  },
-];
-
-if (ANALYTICS_ID) {
-  plugins.push({
-    resolve: 'gatsby-plugin-google-analytics',
-    options: {
-      trackingId: ANALYTICS_ID,
-    },
-  });
-}
+const config = require('./config');
 
 module.exports = {
-  plugins,
+  pathPrefix: config.pathPrefix,
   siteMetadata: {
-    isMediumUserDefined: !!about.mediumUser,
-    deterministic: !!DETERMINISTIC,
+    title: config.siteTitle,
   },
+  plugins: [
+    'gatsby-plugin-react-helmet',
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: config.manifestName,
+        short_name: config.manifestShortName,
+        start_url: config.pathPrefix || config.manifestStartUrl,
+        background_color: config.manifestBackgroundColor,
+        theme_color: config.manifestThemeColor,
+        display: config.manifestDisplay,
+        icon: config.manifestIcon, // This path is relative to the root of the site.
+      },
+    },
+    'gatsby-plugin-sass',
+    'gatsby-plugin-offline',
+  ],
 };
